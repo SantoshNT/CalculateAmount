@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <title>
+        Billing desk
+    </title>
+</head>
+<style>
+    table {
+        border-style: solid;
+        border-color: rgb(103, 109, 199);
+        border-width: 2px;
+        border-radius: 5px;
+        background-color: white;
+        
+    }
+
+
+    #main {
+      
+        margin-left: 35%;
+        margin-right: 35%;
+        margin-top: 2%;
+        margin-bottom: 20%;
+        padding: 4%;
+    }
+    h2{
+        margin-top: 10%;
+        position: relative;
+        animation-name: mymove;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-direction:alternate;
+        }
+
+        @keyframes mymove {
+        from {left: 0%;}
+        to {left: 50%;}
+        }
+</style>
+
+<body>
+    <div id="main">
+        <div class="form">
+            <h2> Calculate </h2>
+            <div name="orderform" id="orderform">
+                <table>
+                    <tr>
+                        <th>
+                            <label>Select the Product: </label>
+                        </th>
+                        <th scope="row">
+                            <div >
+                                <select id="select" name="Products">
+                                    <option value="null">Select product</option>
+                                    <option value="1000">Product A</option>
+                                    <option value="1500">Product B</option>
+                                    <option value="2000">Product C</option>
+                                </select>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <h4 id="Cost"></h4>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <h4 id="myNumber"></h4>
+
+                            <button type="submit" id="submit">TotalAmount</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    // Showing cost of selected product
+    let mySelect = () => {
+        let x = document.getElementById("select").value;
+        document.getElementById('Cost').innerHTML = `Cost of the selected product is ${x}`;
+     
+   
+        let productRate = document.getElementById("select").value;
+        //Selection of ProductA
+        if (productRate == 1000) {
+             discountedRate = (productRate * 0.95);
+             taxRate = (discountedRate * 0.18);
+             finalPrice = (discountedRate + taxRate);
+            document.getElementById("myNumber").innerHTML = `Total amount after 18% tax and 5% discount is ${finalPrice}`;
+        }
+        //Selection of ProductB
+        else if (productRate == 1500) {
+             discountedRate = (productRate * 0.95);
+             taxRate = (discountedRate * 0.18);
+             finalPrice = (discountedRate + taxRate);
+            document.getElementById("myNumber").innerHTML = `Total amount after 18% tax and 5% discount is ${finalPrice}`;
+        }
+        //Selection of ProductC
+        else if (productRate == 2000) {
+             discountedRate = (productRate * 0.95);
+             taxRate = (discountedRate * 0.18);
+             finalPrice = (discountedRate + taxRate);
+            document.getElementById("myNumber").innerHTML = `Total amount after 18% tax and 5% discount is ${finalPrice}`;
+        }
+    };
+    //Adding event listener to render change and submit button on the DOM.
+    
+     document.getElementById("submit").addEventListener("click", mySelect);
+
+</script>
+
+</html>
