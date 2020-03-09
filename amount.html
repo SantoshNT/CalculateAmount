@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <title>
         Billing desk
@@ -13,6 +14,8 @@
         background-color: white;
         
     }
+
+
     #main {
       
         margin-left: 35%;
@@ -35,6 +38,7 @@
         to {left: 50%;}
         }
 </style>
+
 <body>
     <div id="main">
         <div class="form">
@@ -64,6 +68,7 @@
                     <tr>
                         <th>
                             <h4 id="myNumber"></h4>
+
                             <button type="submit" id="submit">TotalAmount</button>
                         </th>
                     </tr>
@@ -73,40 +78,36 @@
     </div>
 </body>
 <script>
+    
 
     // Showing cost of selected product
-    let mySelect = () => {
-        let x = document.getElementById("select").value;
-        document.getElementById('Cost').innerHTML = `Cost of the selected product is ${x}`;
-     
-   
-        let productRate = document.getElementById("select").value;
-        // .Selection of ProductA.
-        if (productRate == 1000) {
-             discountedRate = (productRate * 0.95);
-             taxRate = (discountedRate * 0.18);
-             finalPrice = (discountedRate + taxRate);
-            document.getElementById("myNumber").innerHTML = `Total amount after 18% tax and 5% discount is ${finalPrice}`;
+     mySelect = () => {
+            let arr = ["null","1000", "1500", "2000"];
+            let productRate = document.getElementById("select").value;
+            let discountedRate = (productRate * 0.95);
+            let taxRate = (discountedRate * 0.18);
+            let finalPrice = (discountedRate + taxRate);
+            document.getElementById('Cost').innerHTML = `Cost of the selected product is ${productRate}`;
+            //Selection of ProductA
+            if (productRate == arr[0]) {
+                document.getElementById("myNumber").innerHTML = "Please select other options";
+            }
+            else if (productRate == arr[1]) {
+                document.getElementById("myNumber").innerHTML = `Total amount after 18% tax and 5% discount is ${finalPrice}`;
+            }
+            //Selection of ProductB
+            else if (productRate == arr[2]) {
+                document.getElementById("myNumber").innerHTML = `Total amount after 18% tax and 5% discount is ${finalPrice}`;
+            }
+            //Selection of ProductC
+            else if (productRate == arr[3]) {
+                document.getElementById("myNumber").innerHTML = `Total amount after 18% tax and 5% discount is ${finalPrice}`;
+            }
         }
-        //Selection of ProductB
-        else if (productRate == 1500) {
-             discountedRate = (productRate * 0.95);
-             taxRate = (discountedRate * 0.18);
-             finalPrice = (discountedRate + taxRate);
-            document.getElementById("myNumber").innerHTML = `Total amount after 18% tax and 5% discount is ${finalPrice}`;
-        }
-        //Selection of ProductC
-        else if (productRate == 2000) {
-             discountedRate = (productRate * 0.95);
-             taxRate = (discountedRate * 0.18);
-             finalPrice = (discountedRate + taxRate);
-            document.getElementById("myNumber").innerHTML = `Total amount after 18% tax and 5% discount is ${finalPrice}`;
-        }
-    };
-    //.Adding event listener to render change and submit button on the DOM.
     
-     document.getElementById("submit").addEventListener("click", mySelect);
-
+ //Adding event listener to render change and submit button on the DOM.
+    
+ submit.addEventListener("click", mySelect);
 </script>
 
 </html>
